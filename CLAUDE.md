@@ -33,6 +33,63 @@
 例
 - 現在の投票数
 
+shadcn を使用してください
+```bash
+npx shadcn@latest add コンポーネント名
+```
+
+shadcn コンポーネント
+Accordion
+Alert
+Alert Dialog
+Aspect Ratio
+Avatar
+Badge
+Breadcrumb
+Button
+Calendar
+Card
+Carousel
+Chart
+Checkbox
+Collapsible
+Combobox
+Command
+Context Menu
+Data Table
+Date Picker
+Dialog
+Drawer
+Dropdown Menu
+React Hook Form
+Hover Card
+Input
+Input OTP
+Label
+Menubar
+Navigation Menu
+Pagination
+Popover
+Progress
+Radio Group
+Resizable
+Scroll-area
+Select
+Separator
+Sheet
+Sidebar
+Skeleton
+Slider
+Sonner
+Switch
+Table
+Tabs
+Textarea
+Toast
+Toggle
+Toggle Group
+Tooltip
+Typography
 ## 関数設計
 - 現在の投票数をgetするコンポーネント
   - クッキーは1分にしてください
