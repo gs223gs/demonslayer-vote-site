@@ -35,7 +35,7 @@ export function CharacterCard({ character, lang, isVoted, hasVotedAlready }: Cha
         // TODO: Show error message
         alert(t.error.voteFailed);
       }
-    } catch (error) {
+    } catch {
       alert(t.error.networkError);
     } finally {
       setIsVoting(false);

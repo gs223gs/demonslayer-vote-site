@@ -1,5 +1,4 @@
 import { getLanguage } from '@/lib/cookies';
-import { translations } from '@/lib/i18n/translations';
 
 const footerTranslations = {
   ja: {

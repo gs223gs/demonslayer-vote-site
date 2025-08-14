@@ -23,7 +23,14 @@ const eslintConfig = [
         }
       ]
     }
-  }
+  },
+  {
+    "files": ["components/ui/dropdown-menu.tsx", "components/ui/dialog.tsx", "components/ui/card.tsx", "components/ui/button.tsx"],
+    "rules": {
+      "no-restricted-imports": "off"
+    }
+    }
+
 ];
 
 export default eslintConfig;

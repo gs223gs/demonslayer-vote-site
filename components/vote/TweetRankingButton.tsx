@@ -2,9 +2,8 @@
 
 import { Language, translations } from '@/lib/i18n/translations';
 import { Button } from '@/components/ui/button';
-import { getButtonStyles } from '@/lib/colors';
 import { createTweetUrl, createRankingTweetText } from '@/lib/utils/twitter';
-import { Twitter } from 'lucide-react';
+import { Share } from 'lucide-react';
 
 interface TweetRankingButtonProps {
   ranking: Array<{
@@ -31,7 +30,7 @@ export function TweetRankingButton({ ranking, lang }: TweetRankingButtonProps) {
       size="sm"
       className="gap-2"
     >
-      <Twitter className="h-4 w-4" />
+      <Share className="h-4 w-4" />
       {t.share.tweetRankingButton}
     </Button>
   );

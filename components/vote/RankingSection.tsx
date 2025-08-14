@@ -1,7 +1,6 @@
 import { Language, translations } from '@/lib/i18n/translations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { getCardStyles, getButtonStyles, getTextPrimary } from '@/lib/colors';
+import { getCardStyles, getTextPrimary } from '@/lib/colors';
 import { mockVoteCounts, mockCharacters } from '@/lib/mock-data';
 import { TweetRankingButton } from './TweetRankingButton';
 
