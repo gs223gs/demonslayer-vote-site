@@ -11,6 +11,19 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "error",
+      "no-restricted-imports": [
+        "error",
+        {
+          "name": "react",
+          "importNames": ["useEffect"],
+          "message": "useEffectの使用は禁止されています。"
+        }
+      ]
+    }
+  }
 ];
 
 export default eslintConfig;
