@@ -22,6 +22,7 @@ export function CharacterCard({ character, lang, isVoted, hasVotedAlready }: Cha
   const [showCompleteDialog, setShowCompleteDialog] = useState(false);
   
   const characterName = lang === 'ja' ? character.name_ja : character.name_en;
+  const characterDescription = lang === 'ja' ? character.description_ja : character.description_en;
 
   const handleVote = async () => {
     if (hasVotedAlready) return;
@@ -46,17 +47,12 @@ export function CharacterCard({ character, lang, isVoted, hasVotedAlready }: Cha
     <>
       <Card className={`${getCardStyles()}`}>
         <CardContent className="p-6">
-          {/* TODO: Add character image */}
-          <div className="aspect-square bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-            <span className={`text-sm ${getTextPrimary()}`}>
-              {/* TODO: Replace with image */}
-              画像
-            </span>
-          </div>
-          
           <h3 className={`text-lg font-semibold text-center ${getTextPrimary()}`}>
             {characterName}
           </h3>
+          <p className={`text-sm ${getTextPrimary()}`}>
+            {characterDescription}
+          </p>
         </CardContent>
         
         <CardFooter className="p-6 pt-0">
