@@ -47,6 +47,7 @@ export async function getTotalVoteCount(): Promise<number> {
 }
 
 //TODO: DB POST - Implement with Supabase client
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function insertVote(characterId: string): Promise<void> {
   // Example implementation:
   // const { error } = await supabase
