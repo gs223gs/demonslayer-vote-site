@@ -12,8 +12,9 @@ export default async function VotePage() {
   const votedCharacter = await getVotedCharacter();
   const hasVoted = !!votedCharacter;
   
-  //TODO: Fetch from database with cache
+  //TODO: DB GET - Replace with database query to fetch total vote count with 1-minute cache
   const totalVotes = getTotalVotes();
+  //TODO: DB GET - Replace with database query to fetch all characters
   const characters = mockCharacters;
 
   return (

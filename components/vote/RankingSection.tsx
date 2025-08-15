@@ -11,8 +11,9 @@ interface RankingSectionProps {
 export function RankingSection({ lang }: RankingSectionProps) {
   const t = translations[lang];
   
-  //TODO: Replace with actual database query
+  //TODO: DB GET - Replace with database query to fetch vote counts with 1-minute cache
   const voteCounts = mockVoteCounts;
+  //TODO: DB GET - Replace with database query to fetch all characters
   const characters = mockCharacters;
 
   // ランキングデータを作成

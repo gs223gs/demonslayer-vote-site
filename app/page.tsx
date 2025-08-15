@@ -12,7 +12,7 @@ export default async function Home() {
   const t = translations[lang];
   const boxOfficeAmount = lang === 'ja' ? BOX_OFFICE_AMOUNT : BOX_OFFICE_AMOUNT_EN;
   
-  //TODO: Fetch from database with cache
+  //TODO: DB GET - Replace with database query to fetch total vote count with 1-minute cache
   const totalVotes = getTotalVotes();
 
   return (
