@@ -1,6 +1,6 @@
 import { Character, VoteCount } from '@/types/database';
 
-//TODO: Replace with actual database data
+//TODO: DB GET - Replace with database query to fetch all characters
 export const mockCharacters: Character[] = [
   {
     id: '1',
@@ -8,6 +8,8 @@ export const mockCharacters: Character[] = [
     name_en: 'Kamado Tanjiro',
     category: 'corps',
     display_order: 1,
+    description_ja: '竈門炭治郎は鬼殺隊の隊士であり，鬼殺隊の隊士である。',
+    description_en: 'Kamado Tanjiro is a member of the Demon Slayer Corps.',
   },
   {
     id: '2',
@@ -15,6 +17,8 @@ export const mockCharacters: Character[] = [
     name_en: 'Akaza',
     category: 'demon',
     display_order: 2,
+    description_ja: '猗窩座は鬼殺隊の隊士であり，鬼殺隊の隊士である。',
+    description_en: 'Akaza is a member of the Demon Slayer Corps.',
   },
   {
     id: '3',
@@ -22,10 +26,12 @@ export const mockCharacters: Character[] = [
     name_en: 'Ubuyashiki Kagaya',
     category: 'civilian',
     display_order: 3,
+    description_ja: '産屋敷耀哉は鬼殺隊の隊士であり，鬼殺隊の隊士である。',
+    description_en: 'Ubuyashiki Kagaya is a member of the Demon Slayer Corps.',
   },
 ];
 
-//TODO: Replace with actual database query
+//TODO: DB GET - Replace with database query to fetch vote counts with 1-minute cache
 export const mockVoteCounts: VoteCount[] = [
   {
     character_name: '1', // 竈門炭治郎のID
@@ -41,7 +47,7 @@ export const mockVoteCounts: VoteCount[] = [
   },
 ];
 
-//TODO: Replace with actual database query
+//TODO: DB GET - Replace with database query to calculate total votes with 1-minute cache
 export function getTotalVotes(): number {
   return mockVoteCounts.reduce((total, vote) => total + vote.count, 0);
 }

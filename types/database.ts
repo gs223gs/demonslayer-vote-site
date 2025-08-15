@@ -8,9 +8,10 @@ export interface Character {
   id: string;
   name_ja: string;
   name_en: string;
+  description_ja: string;
+  description_en: string;
   category: 'demon' | 'corps' | 'civilian';
   display_order: number;
-  //TODO: Add image_url when images are ready
 }
 
 export interface VoteCount {
