@@ -1,5 +1,5 @@
-export const BOX_OFFICE_AMOUNT = '200億';
-export const BOX_OFFICE_AMOUNT_EN = '20 billion';
+export const BOX_OFFICE_AMOUNT = '250億';
+export const BOX_OFFICE_AMOUNT_EN = '25 billion';
 
 export const COOKIE_NAMES = {
   VOTED_CHARACTER: 'voted_character',
