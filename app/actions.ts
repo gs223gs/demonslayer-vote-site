@@ -12,7 +12,11 @@ export async function changeLanguage(lang: Language) {
 
 export async function voteForCharacter(characterName: string) {
   try {
-    //TODO: Save vote to database
+    //TODO: DB POST - Insert vote into database
+    // Example: await supabase.from('votes').insert({
+    //   character_name: characterName,
+    //   voted_at: new Date()
+    // });
     
     await setVotedCharacter(characterName);
     revalidatePath('/vote');

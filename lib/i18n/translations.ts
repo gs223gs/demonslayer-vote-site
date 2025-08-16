@@ -35,6 +35,14 @@ export const translations = {
     share: {
       tweetVote: 'に投票しました！',
       tweetRanking: '現在のランキング',
+      tweetButton: 'ツイートする',
+      tweetRankingButton: 'ランキングをツイート',
+      hashtags: '#鬼滅の刃 #無限城編 #200億の人物',
+    },
+    categories: {
+      demon: '鬼',
+      corps: '隊士',
+      civilian: '非隊士',
     },
   },
   en: {
@@ -71,6 +79,14 @@ export const translations = {
     share: {
       tweetVote: 'I voted for',
       tweetRanking: 'Current Ranking',
+      tweetButton: 'Tweet',
+      tweetRankingButton: 'Tweet Ranking',
+      hashtags: '#DemonSlayer #InfinityCastle #20BillionPerson',
+    },
+    categories: {
+      demon: 'Demons',
+      corps: 'Demon Slayers',
+      civilian: 'Civilians',
     },
   },
 } as const;
