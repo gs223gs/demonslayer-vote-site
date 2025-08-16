@@ -1,7 +1,7 @@
 import { getLanguage } from '@/lib/cookies';
 import { translations } from '@/lib/i18n/translations';
 import { BOX_OFFICE_AMOUNT, BOX_OFFICE_AMOUNT_EN } from '@/lib/constants';
-import { getTotalVotes } from '@/lib/mock-data';
+import { getTotalVotes } from '@/lib/data/votes';
 import { TotalVotes } from '@/components/TotalVotes';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -12,8 +12,9 @@ export default async function Home() {
   const t = translations[lang];
   const boxOfficeAmount = lang === 'ja' ? BOX_OFFICE_AMOUNT : BOX_OFFICE_AMOUNT_EN;
   
-  //TODO: DB GET - Replace with database query to fetch total vote count with 1-minute cache
-  const totalVotes = getTotalVotes();
+  const [totalVotes] = await Promise.all([
+    getTotalVotes()
+  ]);
 
   return (
     <div className="container mx-auto px-4 py-12">
