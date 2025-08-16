@@ -31,10 +31,6 @@ export function VotingSection({ characters, lang, votedCharacter }: VotingSectio
     <div className="space-y-8">
       {categories.map(({ key, characters: categoryCharacters }) => (
         <div key={key} className="space-y-4">
-          {/* カテゴリタイトル */}
-          <h2 className={`text-2xl font-bold ${getTextPrimary()}`}>
-            [{t.categories[key]}]
-          </h2>
           
           {/* キャラクターカード */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -45,6 +41,7 @@ export function VotingSection({ characters, lang, votedCharacter }: VotingSectio
                 lang={lang}
                 isVoted={votedCharacter === character.id}
                 hasVotedAlready={!!votedCharacter}
+                category={key}
               />
             ))}
           </div>
