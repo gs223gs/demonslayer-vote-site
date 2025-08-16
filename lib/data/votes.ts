@@ -30,25 +30,19 @@ export const getTotalVotes = unstable_cache(
 async function fetchVoteCountsFromDB(): Promise<{ character_id: string; count: number }[]> {
   const supabase = createAnonClient();
   
+  // RPC関数を使用してデータベース側で集計
   const { data, error } = await supabase
-    .from('votes')
-    .select('character_id')
-    .order('character_id');
+    .rpc('get_vote_counts_by_character');
 
   if (error) {
     console.error('Error fetching vote counts:', error);
     return [];
   }
 
-  // 集計処理
-  const counts = ((data as { character_id: string }[]) || []).reduce((acc: Record<string, number>, vote: { character_id: string }) => {
-    acc[vote.character_id] = (acc[vote.character_id] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  return Object.entries(counts).map(([character_id, count]) => ({
-    character_id,
-    count
+  // データ型を変換（vote_count を count に）
+  return (data as { character_id: string; vote_count: number }[] || []).map((item) => ({
+    character_id: item.character_id,
+    count: Number(item.vote_count) // BigIntからnumberに変換
   }));
 }
 
