@@ -20,7 +20,7 @@ export function TweetRankingButton({ ranking, lang }: TweetRankingButtonProps) {
   const handleTweetRanking = () => {
     const tweetText = createRankingTweetText(ranking, lang);
     const tweetUrl = createTweetUrl(tweetText);
-    window.open(tweetUrl, '_blank');
+    window.open(tweetUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
