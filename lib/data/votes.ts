@@ -39,7 +39,7 @@ async function fetchVoteCountsFromDB(): Promise<{ character_id: string; count: n
   }
 
   // 集計処理
-  const counts = (data || []).reduce((acc: Record<string, number>, vote: { character_id: string }) => {
+  const counts = ((data as { character_id: string }[]) || []).reduce((acc: Record<string, number>, vote: { character_id: string }) => {
     acc[vote.character_id] = (acc[vote.character_id] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);

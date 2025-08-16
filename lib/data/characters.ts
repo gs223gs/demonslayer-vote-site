@@ -15,7 +15,7 @@ async function fetchCharactersFromDB(): Promise<Character[]> {
     return [];
   }
 
-  return data || [];
+  return (data as Character[]) || [];
 }
 
 export const getCharacters = unstable_cache(
