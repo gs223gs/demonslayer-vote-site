@@ -5,7 +5,7 @@ import { Language, translations } from '@/lib/i18n/translations';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getCardStyles, getButtonStyles, getTextPrimary } from '@/lib/colors';
-import { voteForCharacter } from '@/app/actions';
+import { submitVote } from '@/app/actions/vote';
 import { useState } from 'react';
 import { VoteCompleteDialog } from './VoteCompleteDialog';
 
@@ -29,7 +29,7 @@ export function CharacterCard({ character, lang, isVoted, hasVotedAlready }: Cha
     
     setIsVoting(true);
     try {
-      const result = await voteForCharacter(character.id);
+      const result = await submitVote(character.id);
       if (result.success) {
         setShowCompleteDialog(true);
       } else {
