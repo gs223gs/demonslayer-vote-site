@@ -1,6 +1,7 @@
 import { getLanguage, getVotedCharacter } from '@/lib/cookies';
 import { translations } from '@/lib/i18n/translations';
-import { getTotalVotes, mockCharacters } from '@/lib/mock-data';
+import { getCharacters } from '@/lib/data/characters';
+import { getTotalVotes } from '@/lib/data/votes';
 import { TotalVotes } from '@/components/TotalVotes';
 import { VotingSection } from '@/components/vote/VotingSection';
 import { RankingSection } from '@/components/vote/RankingSection';
@@ -12,10 +13,11 @@ export default async function VotePage() {
   const votedCharacter = await getVotedCharacter();
   const hasVoted = !!votedCharacter;
   
-  //TODO: DB GET - Replace with database query to fetch total vote count with 1-minute cache
-  const totalVotes = getTotalVotes();
-  //TODO: DB GET - Replace with database query to fetch all characters
-  const characters = mockCharacters;
+  // Fetch data from database with 1-minute cache
+  const [totalVotes, characters] = await Promise.all([
+    getTotalVotes(),
+    getCharacters()
+  ]);
 
   return (
     <div className="container mx-auto px-4 py-8">
