@@ -1,45 +1,27 @@
 import { Language, translations } from '@/lib/i18n/translations';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getCardStyles, getTextPrimary } from '@/lib/colors';
-import { mockVoteCounts, mockCharacters } from '@/lib/mock-data';
+import { getCharacterVotes } from '@/lib/data/votes';
 import { TweetRankingButton } from './TweetRankingButton';
 
 interface RankingSectionProps {
   lang: Language;
 }
 
-export function RankingSection({ lang }: RankingSectionProps) {
+export async function RankingSection({ lang }: RankingSectionProps) {
   const t = translations[lang];
   
-  //TODO: DB GET - Replace with database query to fetch vote counts with 1-minute cache
-  const voteCounts = mockVoteCounts;
-  //TODO: DB GET - Replace with database query to fetch all characters
-  const characters = mockCharacters;
+  // データベースからキャラクター別投票数を取得（60秒キャッシュ）
+  const charactersWithVotes = await getCharacterVotes();
 
   // ランキングデータを作成
-  const ranking = voteCounts
-    .map(voteCount => {
-      const character = characters.find(c => c.id === voteCount.character_name);
-      return {
-        id: voteCount.character_name,
-        name: character 
-          ? (lang === 'ja' ? character.name_ja : character.name_en)
-          : voteCount.character_name,
-        votes: voteCount.count,
-        category: character?.category || 'unknown',
-      };
-    })
-    .sort((a, b) => b.votes - a.votes) // 降順ソート（投票数が多い順）
-    .map((item, index, array) => {
-      // 同率の場合の順位計算 (1,2,2,4)
-      let rank = 1;
-      for (let i = 0; i < index; i++) {
-        if (array[i].votes !== item.votes) {
-          rank = i + 2;
-        }
-      }
-      return { ...item, rank };
-    });
+  const ranking = charactersWithVotes.map(character => ({
+    id: character.id,
+    name: lang === 'ja' ? character.name_ja : character.name_en,
+    votes: character.voteCount,
+    category: character.category,
+    rank: character.rank,
+  }));
 
   return (
     <Card className={getCardStyles()}>
