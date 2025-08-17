@@ -1,6 +1,6 @@
 # Cloudflare Workers Configuration
 name = "demonslayer-billion-project"
-compatibility_date = "2024-08-17"
+compatibility_date = "2025-08-17"
 compatibility_flags = ["nodejs_compat"]
 
 # Deployment settings
@@ -8,3 +8,7 @@ main = ".vercel/output/static/_worker.js/index.js"
 
 [vars]
 # Environment variables go here
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
