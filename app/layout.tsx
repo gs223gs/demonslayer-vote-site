@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       address: false,
       telephone: false,
     },
-    metadataBase: new URL('https://demonslayer-vote-site.pages.dev/'),
+    metadataBase: new URL('https://demonslayer-vote-site.vercel.app/'),
     alternates: {
       canonical: '/',
       languages: {
@@ -53,11 +53,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: 'https://demonslayer-vote-site.pages.dev/',
+      url: 'https://demonslayer-vote-site.vercel.app/',
       siteName,
       images: [
         {
-          url: 'https://demonslayer-vote-site.pages.dev/opengraph-image.jpg',
+          url: 'https://demonslayer-vote-site.vercel.app/opengraph-image.jpg',
           width: 1200,
           height: 630,
           alt: siteName,
@@ -70,7 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://demonslayer-vote-site.pages.dev/opengraph-image.jpg'],
+      images: ['https://demonslayer-vote-site.vercel.app/opengraph-image.jpg'],
       creator: '@gs223gs_',
     },
     robots: {
