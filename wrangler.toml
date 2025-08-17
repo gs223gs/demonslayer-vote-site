@@ -1,0 +1,42 @@
+name = "demonslayer-vote-site"
+main = "./.vercel/output/static/_worker.js"
+compatibility_date = "2024-08-16"
+compatibility_flags = ["nodejs_compat"]
+
+# KVネームスペース（必要に応じて）
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "your-kv-namespace-id"
+
+# 環境変数
+[vars]
+# NODE_ENV = "production"
+
+# シークレット（wrangler secret putで設定）
+# NEXT_PUBLIC_SUPABASE_URL
+# NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+# ルーティング設定
+[site]
+bucket = "./.vercel/output/static"
+
+# Workers の制限設定
+[limits]
+cpu_ms = 50
+
+# 開発環境設定
+[dev]
+port = 3000
+local_protocol = "http"
+
+# ビルド設定
+[build]
+command = "npm run build:worker"
+
+# 環境別設定
+[env.production]
+name = "demonslayer-vote-site-prod"
+route = "xxx.com/*"
+
+[env.staging]
+name = "demonslayer-vote-site-staging"
