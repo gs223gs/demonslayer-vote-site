@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       address: false,
       telephone: false,
     },
-    metadataBase: new URL('https://xxx.com'),
+    metadataBase: new URL('https://demonslayer-vote-site.pages.dev/'),
     alternates: {
       canonical: '/',
       languages: {
@@ -51,11 +51,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: 'https://xxx.com',
+      url: 'https://demonslayer-vote-site.pages.dev/',
       siteName,
       images: [
         {
-          url: 'https://xxx.com/opengraph-image.jpg',
+          url: 'https://demonslayer-vote-site.pages.dev/opengraph-image.jpg',
           width: 1200,
           height: 630,
           alt: siteName,
@@ -68,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title,
       description,
-      images: ['https://xxx.com/opengraph-image.jpg'],
+      images: ['https://demonslayer-vote-site.pages.dev/opengraph-image.jpg'],
       creator: '@gs223gs_',
     },
     robots: {
