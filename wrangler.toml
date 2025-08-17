@@ -1,11 +1,10 @@
 # Cloudflare Workers Configuration
-name = "demonslayer-vote-site"
+name = "demonslayer-billion-project"
 compatibility_date = "2024-08-17"
 compatibility_flags = ["nodejs_compat"]
 
 # Deployment settings
 main = ".vercel/output/static/_worker.js/index.js"
-assets = { directory = ".vercel/output/static", binding = "ASSETS" }
 
 [vars]
 # Environment variables go here
