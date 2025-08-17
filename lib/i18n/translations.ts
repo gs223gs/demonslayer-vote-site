@@ -37,7 +37,7 @@ export const translations = {
       tweetRanking: '現在のランキング',
       tweetButton: 'ツイートする',
       tweetRankingButton: 'ランキングをツイート',
-      hashtags: '#鬼滅の刃 #無限城編 #200億の人物',
+      hashtags: '#鬼滅の刃 #無限城編 #xxx億を送るプロジェクト',
     },
     categories: {
       demon: '鬼',
@@ -81,7 +81,7 @@ export const translations = {
       tweetRanking: 'Current Ranking',
       tweetButton: 'Tweet',
       tweetRankingButton: 'Tweet Ranking',
-      hashtags: '#DemonSlayer #InfinityCastle #20BillionPerson',
+      hashtags: '#DemonSlayer #InfinityCastle #xxxBillionProject',
     },
     categories: {
       demon: 'Demons',

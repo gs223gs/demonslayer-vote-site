@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Button } from '@/components/ui/button';
 import { getButtonStyles, getTextPrimary } from '@/lib/colors';
 import { createTweetUrl } from '@/lib/utils/twitter';
+import { url } from '@/lib/utils/url';
 
 interface VoteCompleteDialogProps {
   open: boolean;
@@ -17,7 +18,7 @@ export function VoteCompleteDialog({ open, onClose, characterName, lang }: VoteC
   const t = translations[lang];
 
   const handleTweet = () => {
-    const tweetText = `${characterName}${t.share.tweetVote} ${t.share.hashtags}`;
+    const tweetText = `${characterName}${t.share.tweetVote} ${t.share.hashtags} \n${url}`;
     const tweetUrl = createTweetUrl(tweetText);
     window.open(tweetUrl, '_blank');
     onClose();

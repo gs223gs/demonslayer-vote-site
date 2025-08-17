@@ -1,7 +1,6 @@
 import { Character } from '@/types/database';
-import { Language, translations } from '@/lib/i18n/translations';
+import { Language } from '@/lib/i18n/translations';
 import { CharacterCard } from './CharacterCard';
-import { getTextPrimary } from '@/lib/colors';
 
 interface VotingSectionProps {
   characters: Character[];
@@ -10,7 +9,6 @@ interface VotingSectionProps {
 }
 
 export function VotingSection({ characters, lang, votedCharacter }: VotingSectionProps) {
-  const t = translations[lang];
   
   // キャラクターをカテゴリ別にグループ化
   const groupedCharacters = characters.reduce((acc, character) => {
