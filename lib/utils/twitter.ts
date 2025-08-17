@@ -1,3 +1,5 @@
+import { url } from '@/lib/utils/url';
+
 export function createTweetUrl(text: string, url?: string): string {
   const params = new URLSearchParams();
   params.set('text', text);
@@ -15,9 +17,8 @@ export function createRankingTweetText(
 ): string {
   const title = lang === 'ja' ? '現在のランキング🏆' : 'Current Ranking🏆';
   const hashtags = lang === 'ja' 
-    ? '#鬼滅の刃 #無限城編 #200億の人物'
-    : '#DemonSlayer #InfinityCastle #20BillionPerson';
-  
+    ? '#鬼滅の刃 #無限城編 #xxx億を送るプロジェクト'
+    : '#DemonSlayer #InfinityCastle #xxxBillionProject';
   const rankingText = ranking
     .slice(0, 3) // トップ3のみ
     .map(item => {
@@ -26,5 +27,5 @@ export function createRankingTweetText(
     })
     .join('\n');
   
-  return `${title}\n${rankingText}\n${hashtags}`;
+  return `${title}\n${rankingText}\n${hashtags}\n${url}`;
 }
