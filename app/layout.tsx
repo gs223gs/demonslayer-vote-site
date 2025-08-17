@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { getLanguage } from "@/lib/cookies";
 import { translations } from "@/lib/i18n/translations";
 
+export const runtime = 'edge';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

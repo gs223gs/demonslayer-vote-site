@@ -7,6 +7,8 @@ import { VotingSection } from '@/components/vote/VotingSection';
 import { RankingSection } from '@/components/vote/RankingSection';
 import { getTextPrimary } from '@/lib/colors';
 
+export const runtime = 'edge';
+
 export default async function VotePage() {
   const lang = await getLanguage();
   const t = translations[lang];

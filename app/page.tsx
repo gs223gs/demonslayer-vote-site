@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { getCardStyles, getButtonStyles, getTextPrimary } from '@/lib/colors';
 
+export const runtime = 'edge';
+
 export default async function Home() {
   const lang = await getLanguage();
   const t = translations[lang];
