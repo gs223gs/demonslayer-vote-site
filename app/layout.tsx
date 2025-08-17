@@ -20,9 +20,68 @@ export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLanguage();
   const t = translations[lang];
   
+  const siteName = '鬼滅の刃 無限城編 投票サイト';
+  const title = `${t.home.title} | ${siteName}`;
+  const description = lang === 'ja' 
+    ? '映画「鬼滅の刃 無限城編」の200億の人物を決める投票サイト。あなたの推しキャラに投票して、誰が最も活躍したか決めよう！竈門炭治郎、猗窩座、冨岡義勇など全48キャラクターから選べます。'
+    : 'Vote for your favorite character from Demon Slayer: Infinity Castle Arc movie. Decide who deserves the title of "20 Billion Person"! Choose from 48 characters including Kamado Tanjiro, Akaza, Tomioka Giyu and more.';
+  
   return {
-    title: t.home.title,
-    description: t.home.description,
+    title,
+    description,
+    keywords: lang === 'ja' 
+      ? ['鬼滅の刃', '無限城編', '投票', '200億の男', 'ランキング', '竈門炭治郎', '猗窩座']
+      : ['Demon Slayer', 'Infinity Castle', 'voting', 'ranking', 'Kamado Tanjiro', 'Akaza'],
+    authors: [{ name: siteName }],
+    creator: siteName,
+    publisher: siteName,
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    metadataBase: new URL('https://xxx.com'),
+    alternates: {
+      canonical: '/',
+      languages: {
+        'ja': '/ja',
+        'en': '/en',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: 'https://xxx.com',
+      siteName,
+      images: [
+        {
+          url: 'https://xxx.com/opengraph-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: siteName,
+        }
+      ],
+      locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['https://xxx.com/opengraph-image.jpg'],
+      creator: '@gs223gs_',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
