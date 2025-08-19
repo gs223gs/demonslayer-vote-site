@@ -81,7 +81,6 @@ async function fetchVoteDataFromDB() {
     return dayData;
   });
 
-  console.log(`Processed ${chartData.length} days of data for ${characters.length} characters`);
 
   return { 
     success: true, 

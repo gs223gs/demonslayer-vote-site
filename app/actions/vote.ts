@@ -4,11 +4,16 @@ import { createClient } from '@/util/supabase/server';
 import { setVotedCharacter } from '@/lib/cookies';
 import { revalidateTag } from 'next/cache';
 import { getVoteMetadata } from './vote-metadata';
+import { determineVoterType } from '@/lib/recaptcha';
 
-export async function submitVote(characterId: string) {
+export async function submitVote(characterId: string, recaptchaToken?: string | null) {
   try {
-    // メタデータを取得（無効化したい場合はgetVoteMetadataDisabledに変更）
-    const metadata = await getVoteMetadata();
+    
+    // メタデータとvoter_typeを取得
+    const [metadata, voterType] = await Promise.all([
+      getVoteMetadata(),
+      determineVoterType(recaptchaToken || null)
+    ]);
     
     // Supabaseクライアントを作成
     const supabase = await createClient();
@@ -20,6 +25,7 @@ export async function submitVote(characterId: string) {
         {
           character_id: characterId,
           voted_at: new Date().toISOString(),
+          voter_type: voterType, // human, demon, unknown
           ...metadata // メタデータを展開（空の場合は何も追加されない）
         }
       ]);
