@@ -28,6 +28,12 @@ export async function Header() {
             >
               {t.common.voteAndRanking}
             </Link>
+            <Link 
+              href="/graph" 
+              className="text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              {t.common.graph}
+            </Link>
             <LanguageSelector currentLang={lang} />
           </nav>
         </div>
