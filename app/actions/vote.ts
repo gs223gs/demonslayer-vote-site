@@ -3,9 +3,13 @@
 import { createClient } from '@/util/supabase/server';
 import { setVotedCharacter } from '@/lib/cookies';
 import { revalidateTag } from 'next/cache';
+import { getVoteMetadata } from './vote-metadata';
 
 export async function submitVote(characterId: string) {
   try {
+    // メタデータを取得（無効化したい場合はgetVoteMetadataDisabledに変更）
+    const metadata = await getVoteMetadata();
+    
     // Supabaseクライアントを作成
     const supabase = await createClient();
     
@@ -15,7 +19,8 @@ export async function submitVote(characterId: string) {
       .insert([
         {
           character_id: characterId,
-          voted_at: new Date().toISOString()
+          voted_at: new Date().toISOString(),
+          ...metadata // メタデータを展開（空の場合は何も追加されない）
         }
       ]);
 
