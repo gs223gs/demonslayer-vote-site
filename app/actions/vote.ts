@@ -8,6 +8,7 @@ import { determineVoterType } from '@/lib/recaptcha';
 
 export async function submitVote(characterId: string, recaptchaToken?: string | null) {
   try {
+    
     // メタデータとvoter_typeを取得
     const [metadata, voterType] = await Promise.all([
       getVoteMetadata(),
