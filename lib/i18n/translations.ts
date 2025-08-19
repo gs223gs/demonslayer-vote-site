@@ -10,6 +10,7 @@ export const translations = {
       vote: '投票',
       voteAndRanking: '投票/ランキング',
       home: 'ホーム',
+      graph: 'グラフ',
     },
     home: {
       title: '鬼滅の刃 無限城編 投票サイト ~200億の人物は誰だ?~',
@@ -54,6 +55,7 @@ export const translations = {
       vote: 'Vote',
       voteAndRanking: 'Vote/Ranking',
       home: 'Home',
+      graph: 'Graph',
     },
     home: {
       title: 'Demon Slayer: Infinity Castle Arc Voting Site ~Who is the 20 billion person?~',
